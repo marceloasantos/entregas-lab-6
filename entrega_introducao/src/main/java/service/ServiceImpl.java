@@ -6,8 +6,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ServiceImpl implements Service {
-    List<PlanoDeVoo> planos = new LinkedList<PlanoDeVoo>();
-
     @Override
     public PlanoDeVoo cadastrarPlanoDeVoo(PlanoDeVoo planoDeVoo) {
         PlanoDeVoo novo = new PlanoDeVoo(
@@ -15,8 +13,6 @@ public class ServiceImpl implements Service {
                 planoDeVoo.aeronave,
                 planoDeVoo.saidaEstimada,
                 planoDeVoo.chegadaEstimada);
-
-        planos.add(novo);
 
         return novo;
     }
@@ -32,9 +28,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public Boolean excluirPlanoDeVoo(Integer id) {
-        if (id == 1) {
-            return true;
+    public Boolean excluirPlanoDeVoo(Integer id, List<PlanoDeVoo> planos) {
+        for (PlanoDeVoo plano: planos) {
+            if (plano.id == id) {
+                planos.remove(plano);
+
+                return true;
+            }
         }
 
         return false;
