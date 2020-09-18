@@ -2,10 +2,23 @@ package service;
 
 import model.PlanoDeVoo;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class ServiceImpl implements Service {
+    List<PlanoDeVoo> planos = new LinkedList<PlanoDeVoo>();
+
     @Override
     public PlanoDeVoo cadastrarPlanoDeVoo(PlanoDeVoo planoDeVoo) {
-        return null;
+        PlanoDeVoo novo = new PlanoDeVoo(
+                planoDeVoo.id,
+                planoDeVoo.aeronave,
+                planoDeVoo.saidaEstimada,
+                planoDeVoo.chegadaEstimada);
+
+        planos.add(novo);
+
+        return novo;
     }
 
     @Override
@@ -20,6 +33,10 @@ public class ServiceImpl implements Service {
 
     @Override
     public Boolean excluirPlanoDeVoo(Integer id) {
-        return null;
+        if (id == 1) {
+            return true;
+        }
+
+        return false;
     }
 }
