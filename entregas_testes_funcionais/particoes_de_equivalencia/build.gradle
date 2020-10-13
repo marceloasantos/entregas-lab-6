@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "Main"
+
+task(runMain, dependsOn: classes, type: JavaExec) {
+    main = "Main"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.1'
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+    testCompile('org.mockito:mockito-core:2.23.4')
+}
+
+test {
+    useJUnitPlatform()
+}
