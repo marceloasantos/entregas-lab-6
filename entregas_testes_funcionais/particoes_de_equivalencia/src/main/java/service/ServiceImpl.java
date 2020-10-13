@@ -21,7 +21,12 @@ public class ServiceImpl implements Service {
 
             return novo;
         } else {
-            return null;
+            return new PlanoDeVoo(
+                    0,
+                    "ERR000",
+                    9999,
+                    9999
+            );
         }
     }
 
@@ -37,6 +42,14 @@ public class ServiceImpl implements Service {
 
     @Override
     public Boolean excluirPlanoDeVoo(Integer id, List<PlanoDeVoo> planos) {
-        return id == 1;
+        for (PlanoDeVoo plano: planos) {
+            if (plano.id.equals(id)) {
+                planos.remove(plano);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 }
