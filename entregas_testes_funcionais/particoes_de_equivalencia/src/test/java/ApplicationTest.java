@@ -1,13 +1,17 @@
 import model.PlanoDeVoo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
 import service.Service;
+import service.ServiceImpl;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class ApplicationTest {
-    Service service;
+    @InjectMocks
+    Service service = new ServiceImpl();
 
     @Test
     public void testDeveCadastrarComSucesso() {
