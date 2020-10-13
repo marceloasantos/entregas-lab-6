@@ -26,7 +26,7 @@ public class ApplicationTest {
         PlanoDeVoo planoDeVoo = new PlanoDeVoo(1, "JET1", 1120, 1620);
         var planoDeVooCadastrado = service.cadastrarPlanoDeVoo(planoDeVoo);
 
-        Assertions.assertEquals(planoDeVoo.id, planoDeVooCadastrado.id);
+        Assertions.assertNull(planoDeVooCadastrado);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class ApplicationTest {
         PlanoDeVoo planoDeVoo = new PlanoDeVoo(1, "JET100000", 1120, 1620);
         var planoDeVooCadastrado = service.cadastrarPlanoDeVoo(planoDeVoo);
 
-        Assertions.assertEquals(planoDeVoo.id, planoDeVooCadastrado.id);
+        Assertions.assertNull(planoDeVooCadastrado);
     }
 
     @Test

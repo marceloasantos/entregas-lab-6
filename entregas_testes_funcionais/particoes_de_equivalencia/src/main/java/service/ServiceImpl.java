@@ -10,15 +10,19 @@ public class ServiceImpl implements Service {
 
     @Override
     public PlanoDeVoo cadastrarPlanoDeVoo(PlanoDeVoo planoDeVoo) {
-        PlanoDeVoo novo = new PlanoDeVoo(
-                planoDeVoo.id,
-                planoDeVoo.aeronave,
-                planoDeVoo.saidaEstimada,
-                planoDeVoo.chegadaEstimada);
+        if (planoDeVoo.aeronave.length() == 6) {
+            PlanoDeVoo novo = new PlanoDeVoo(
+                    planoDeVoo.id,
+                    planoDeVoo.aeronave,
+                    planoDeVoo.saidaEstimada,
+                    planoDeVoo.chegadaEstimada);
 
-        planos.add(novo);
+            planos.add(novo);
 
-        return novo;
+            return novo;
+        } else {
+            return null;
+        }
     }
 
     @Override
